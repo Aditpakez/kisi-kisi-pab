@@ -174,3 +174,13 @@ Selalu biasakan menarik update terbaru sebelum mulai bekerja:
 ```bash
 git pull origin main
 ```
+
+### D. Error `403: Permission denied` (Jika PC memiliki lebih dari 1 akun GitHub)
+- **Penyebab:** Di PC kamu atau PC kampus, ada akun GitHub orang lain yang tersimpan di Windows Credential Manager / browser, sehingga Git otomatis memakai akun tersebut.
+- **Solusi:**
+  Paksa Git menggunakan username GitHub kamu dengan menyisipkan `USERNAME@` di depan URL repository:
+  ```bash
+  git remote set-url origin https://Aditpakez@github.com/Aditpakez/kisi-kisi-pab.git
+  git push -u origin main
+  ```
+  Dengan cara ini, Git akan meminta verifikasi akun `Aditpakez` secara spesifik tanpa tertukar dengan akun lain.
